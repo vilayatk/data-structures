@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+#build files
+x64/
+.vs/
+DataStructures.vcxproj.user
