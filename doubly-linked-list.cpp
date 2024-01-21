@@ -35,9 +35,9 @@ void TraverseList(ListNode *head)
 
 void InsertNodeAt(ListNode*& head, int position, int value)
 {
+    ListNode* new_node = new ListNode(value);
     if (position == 0)
     {
-        ListNode* new_node = new ListNode(value);
         new_node->next = head;
         head->prev = new_node;
         head = new_node;
@@ -46,17 +46,19 @@ void InsertNodeAt(ListNode*& head, int position, int value)
     ListNode* current = head;
     int counter = 0;
 
-    while (counter < position) {
+    while (counter < position && current->next != nullptr) {
         current = current->next;
         counter++;
     }
     if (counter == position) {
-        ListNode* new_node = new ListNode(value);
         new_node->prev = current->prev;
         new_node->next = current;
 
         current->prev->next = new_node;
         current->prev = new_node;
+    } else {
+        new_node->prev = current;
+        current->next = new_node;
     }
 }
 
@@ -98,7 +100,8 @@ int main()
     // TraverseList(head);
     // InsertNodeAt(head, 2, 500);
     // TraverseList(head);
-    DeleteNodeAt(head, 5);
+    TraverseList(head);
+    InsertNodeAt(head, 6, 500);
     TraverseList(head);
     return 0;
 }
