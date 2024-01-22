@@ -1,0 +1,33 @@
+0x2045bbf6ec0 -> 0x2045bbf6ee0  3
+0x2045bbf6ee0 -> 0x2045bbf6f00	2
+0x2045bbf6f00 -> 0x2045bbf6f20	1
+0x2045bbf6f20 -> NULL			0
+
+
+node is at 0x2045bbf6ec0
+next = 0x2045bbf6ee0
+node->next = previous
+previous = node
+node = next;
+
+
+
+node is at 0x2045bbf6ee0
+next = 0x2045bbf6f00
+node->next = previous
+previous = node;
+node = next;
+
+node is at 0x2045bbf6f00
+next = 0x2045bbf6f20
+node->next = previous
+previous = node
+node= next;
+
+node is at 0x2045bbf6f20
+next = NULL
+node->next = previous
+previous = node
+node= next;
+
+head = previous
