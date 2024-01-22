@@ -24,6 +24,10 @@ void CreateList(ListNode *head, int length)
 
 void TraverseList(ListNode *head)
 {
+    if (head == nullptr) {
+        std::cout << "Is null";
+        return;
+    }
     ListNode *current = head;
     while (current != nullptr)
     {
@@ -92,16 +96,24 @@ void DeleteNodeAt(ListNode*& head, int position)
     }
 }
 
+void DeleteList(ListNode*& head)
+{
+    ListNode* current = head;
+
+    while (current != nullptr)
+    {
+        auto next = current->next;
+        delete current;
+        current = next;
+    }
+    head = nullptr;
+}
 int main()
 {
     const int length = 5;
     ListNode *head = new ListNode(length);
     CreateList(head, length);
-    // TraverseList(head);
-    // InsertNodeAt(head, 2, 500);
-    // TraverseList(head);
-    TraverseList(head);
-    InsertNodeAt(head, 6, 500);
+    DeleteList(head);
     TraverseList(head);
     return 0;
 }
