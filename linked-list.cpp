@@ -104,11 +104,30 @@ void DeleteList(ListNode *&head)
     }
     head = nullptr;
 }
+
+void ReverseList(ListNode*& head)
+{
+    ListNode* current = head;
+    ListNode* previous = NULL;
+
+    while(current != nullptr)
+    {
+        auto next = current->next;
+        current->next = previous;
+        previous = current;
+        current = next;
+    }
+    head = previous;
+}
+
 int main()
 {
     const int length = 6;
 
     auto head = new ListNode(length);
     CreateList(head, length);
+    TraverseList(head);
+    ReverseList(head);
+    TraverseList(head);
     return 0;
 }
