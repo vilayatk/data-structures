@@ -1,13 +1,6 @@
 #include <iostream>
 #include "array_adt.cpp"
 
-void SwapPosition(int *x, int *y)
-{
-    int temp = *x;
-    *x = *y;
-    *y = temp;
-}
-
 int LinearSearch(struct Array *arr, int x, int method = -1)
 {
     for (int i = 0; i < arr->length; i++)
@@ -71,13 +64,13 @@ int RecursiveBinarySearch(struct Array arr, int x, int high, int low)
     return -1;
 }
 
-int main()
-{
-    Array arr = {{2, 3, 4, 5, 6, 7}, 10, 6};
-    int index = -1;
+// int main()
+// {
+//     Array arr = {{2, 3, 4, 5, 6, 7}, 10, 6};
+//     int index = -1;
 
-    std::cout << RecursiveBinarySearch(arr, 2, 6, 0);
-}
+//     std::cout << RecursiveBinarySearch(arr, 2, 6, 0);
+// }
 
 // if key element is found
 // Transposition = move it ahead by 1 every time it is searched O(n-1) next time
